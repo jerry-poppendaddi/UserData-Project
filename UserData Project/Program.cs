@@ -12,7 +12,7 @@ class Program
             Console.WriteLine("What is your First Name?");
             NameInput = Console.ReadLine();
         }
-        while (CheckName(NameInput, out string CorrNameInput);
+        while (CheckName(NameInput, out string CorrNameInput));
         User.Name = CorrNameInput;
 
         string LastNameInput;
@@ -70,6 +70,7 @@ class Program
                 Console.WriteLine("Enter your favourite color #{0}", k + 1);
                 favcolor[k] = Console.ReadLine();
             }
+            return favcolor;
         }
 
 
@@ -93,7 +94,7 @@ class Program
             for (int m = 0; m < value.Length; m++)
                 if (char.IsDigit(value[m]) == false)
                 { corrvalue = value; }
-            { corrvalue = 0;
+            { corrvalue = 1A;
             }
             return corrvalue;
         }
