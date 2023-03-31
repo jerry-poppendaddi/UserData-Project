@@ -1,30 +1,29 @@
 ﻿using System;
 
-
 class Program
 { static (string Name, string LastName, int Age, int SumPet, string[] NamePet, string[] FavColors) EnterUser()  //First Method
     {
         (string Name, string LastName, int Age, int SumPet, string[] NamePet, string[] FavColors) User;
 
-        var NameInput;                                           //Name Data Collection
-        string NameOutput;
+        string NameInput;
+        string CorrNameInput;
         do
         {
             Console.WriteLine("What is your First Name?");
             NameInput = Console.ReadLine();
-        } while (CheckNum(NameInput, out NameOutput));
-        
-        User.Name = NameOutput;
+        }
+        while (CheckName(NameInput, out string CorrNameInput);
+        User.Name = CorrNameInput;
 
-        var LastNameInput;                                      //Last Name Data Collection
-        string LastNameOutput;
+        string LastNameInput;
+        string CorrLastNameInput;
         do
         {
             Console.WriteLine("What is your Last Name?");
             LastNameInput = Console.ReadLine();
-        } while (CheckNum(LastNameInput, out LastNameOutput));
-
-        User.LastName = LastNameOutput;
+        }
+        while (CheckName(LastNameInput, out string CorrLastNameInput));
+        User.LastName = CorrLastNameInput;
 
         string age;                                            //Age Data Collection
         int intage;
@@ -46,19 +45,19 @@ class Program
         }
         while (CheckNum(Pets, out numpet));
         User.SumPet = numpet;
-        
+
         User.NamePet = NamePets(User.SumPet);
 
-        private static string NamePets(string[] PetList)       //Pet Names Data Collection
+        static string[] NamePets(int SumPet)       //Pet Names Data Collection
         {
-            string[] PetList = new string[User.SumPet];
+            string[] PetList = new string[SumPet];
 
             for (int i = 0; i < PetList.Length; i++)
             {
                 Console.WriteLine("Type your pet #{0} name below:", i + 1);
                 PetList[i] = Console.ReadLine();
             }
-            Console.ReadKey();
+            return PetList;
         }
 
         User.FavColors = ColorList();
@@ -75,21 +74,34 @@ class Program
 
 
         return User;
-    }
-        
-    static bool CheckNum(string number, out int corrnumber)   //Input Correctness Check Method
-    { if (int.TryParse(number, out int intnum))
-        { if (intnum > 0)
+
+
+        static bool CheckNum(string number, out int corrnumber)   //Input Number Correctness Check Method
+        { if (int.TryParse(number, out int intnum))
+            { if (intnum > 0)
                 { corrnumber = intnum;
                     return false;
                 }
+            }
+            { corrnumber = 0;
+                return true;
+            }
         }
-        { corrnumber = 0;
-            return true;
-        }
-    }
 
-    public string Main()                                     //Method for displaying all the results
-    { Console.WriteLine("Hello," EnterUser( ))
-   }
+        static string CheckName(string value, out string corrvalue)     //Input Text Check Method
+        {
+            for (int m = 0; m < value.Length; m++)
+                if (char.IsDigit(value[m]) == false)
+                { corrvalue = value; }
+            { corrvalue = 0;
+            }
+            return corrvalue;
+        }
+
+
+
+
+
+    }
+}
 
