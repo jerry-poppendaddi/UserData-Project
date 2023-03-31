@@ -1,12 +1,18 @@
 ﻿using System;
 
 class Program
-{ static (string Name, string LastName, int Age, int SumPet, string[] NamePet, string[] FavColors) EnterUser()  //First Method
+{ 
+    static void Main(string[] args)
+    { Console.WriteLine("Hello!");
+       
+    }
+
+    static (string Name, string LastName, int Age, int SumPet, string[] NamePet, string[] FavColors) EnterUser()  //First Method
     {
         (string Name, string LastName, int Age, int SumPet, string[] NamePet, string[] FavColors) User;
 
         string NameInput;
-        
+
         do
         {
             Console.WriteLine("What is your First Name?");
@@ -16,7 +22,7 @@ class Program
         User.Name = NameInput;
 
         string LastNameInput;
-        
+
         do
         {
             Console.WriteLine("What is your Last Name?");
@@ -78,28 +84,35 @@ class Program
 
 
         static bool CheckNum(string number, out int corrnumber)   //Input Number Correctness Check Method
-        { if (int.TryParse(number, out int intnum))
-            { if (intnum > 0)
-                { corrnumber = intnum;
+        {
+            if (int.TryParse(number, out int intnum))
+            {
+                if (intnum > 0)
+                {
+                    corrnumber = intnum;
                     return false;
                 }
             }
-            { corrnumber = 0;
+            {
+                corrnumber = 0;
                 return true;
             }
         }
 
         static bool CheckName(string value)     //Input Text Check Method
-        { foreach (char c in value)
-            { if (!char.IsLetter(c))
+        {
+            foreach (char c in value)
+            {
+                if (char.IsLetter(c))
                     return false;
             }
             return true;
 
-
-        
-
-
+        }
+    
     }
+  
 }
+
+
 
