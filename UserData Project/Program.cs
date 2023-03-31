@@ -6,24 +6,24 @@ class Program
         (string Name, string LastName, int Age, int SumPet, string[] NamePet, string[] FavColors) User;
 
         string NameInput;
-        string CorrNameInput;
+        
         do
         {
             Console.WriteLine("What is your First Name?");
             NameInput = Console.ReadLine();
         }
-        while (CheckName(NameInput, out string CorrNameInput));
-        User.Name = CorrNameInput;
+        while (CheckName(NameInput));
+        User.Name = NameInput;
 
         string LastNameInput;
-        string CorrLastNameInput;
+        
         do
         {
             Console.WriteLine("What is your Last Name?");
             LastNameInput = Console.ReadLine();
         }
-        while (CheckName(LastNameInput, out string CorrLastNameInput));
-        User.LastName = CorrLastNameInput;
+        while (CheckName(LastNameInput));
+        User.LastName = LastNameInput;
 
         string age;                                            //Age Data Collection
         int intage;
@@ -89,18 +89,15 @@ class Program
             }
         }
 
-        static string CheckName(string value, out string corrvalue)     //Input Text Check Method
-        {
-            for (int m = 0; m < value.Length; m++)
-                if (char.IsDigit(value[m]) == false)
-                { corrvalue = value; }
-            { corrvalue = 1A;
+        static bool CheckName(string value)     //Input Text Check Method
+        { foreach (char c in value)
+            { if (!char.IsLetter(c))
+                    return false;
             }
-            return corrvalue;
-        }
+            return true;
 
 
-
+        
 
 
     }
